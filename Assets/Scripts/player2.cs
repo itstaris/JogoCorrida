@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class player1 : MonoBehaviour
+public class player2 : MonoBehaviour
 {
     private Rigidbody2D rb; // Referência ao Rigidbody2D do jogador
     
@@ -39,10 +39,10 @@ public class player1 : MonoBehaviour
         float moveX = 0f;
         float moveY = 0f;
         
-        if (Input.GetKey(KeyCode.LeftArrow)) moveX = -1f;
-        if (Input.GetKey(KeyCode.RightArrow)) moveX = 1f;
-        if (Input.GetKey(KeyCode.UpArrow)) moveY = 1f;
-        if (Input.GetKey(KeyCode.DownArrow)) moveY = -1f;
+        if (Input.GetKey(KeyCode.A)) moveX = -1f;
+        if (Input.GetKey(KeyCode.D)) moveX = 1f;
+        if (Input.GetKey(KeyCode.W)) moveY = 1f;
+        if (Input.GetKey(KeyCode.S)) moveY = -1f;
 
         //vetor de direção
         Vector2 targetVelocity = new Vector2(moveX, moveY).normalized * moveSpeed;
@@ -70,7 +70,7 @@ public class player1 : MonoBehaviour
                 Debug.Log("Volta completada!");
                 laps++;
                 Debug.Log(laps);
-                lapsLabel.text = "Player 1: " + laps.ToString() + " laps";
+                lapsLabel.text = "Player 2: " + laps.ToString() + " laps";
             }
         }
 
