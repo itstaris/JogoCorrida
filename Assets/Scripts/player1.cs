@@ -5,10 +5,15 @@ using UnityEngine;
 public class player1 : MonoBehaviour
 {
     private Rigidbody2D rb; // Referência ao Rigidbody2D do jogador
+    
+    //movement
     public float maxSpeed;
     public float moveSpeed;
     public float acceleration;
     private Vector2 currentVelocity;
+
+    //checkpoints
+    public GameObject[] checkpoints;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +30,14 @@ public class player1 : MonoBehaviour
 
     void Movement()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        float moveX = 0f;
+        float moveY = 0f;
         
+        if (Input.GetKey(KeyCode.LeftArrow)) moveX = -1f;
+        if (Input.GetKey(KeyCode.RightArrow)) moveX = 1f;
+        if (Input.GetKey(KeyCode.UpArrow)) moveY = 1f;
+        if (Input.GetKey(KeyCode.DownArrow)) moveY = -1f;
+
         //vetor de direção
         Vector2 targetVelocity = new Vector2(moveX, moveY).normalized * moveSpeed;
         
